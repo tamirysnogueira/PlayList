@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style/style.css">
+    <title>Playlist</title>
+</head>
+<body>
+    <main id="container" >
+        <section id="perfil">
+            <img src="img/eu 1.jpg" alt="Eu">
+            <h1>Playlist de Tamirys</h1>
+        </section>
+
+        <section id="principal">
+            <div id="tocandoAgora">
+                
+            </div>
+
+            <div id="musicasDisponiveis">
+
+            </div>
+        </section>
+
+        <section id="musica">
+            <div id="controles">
+                <div>
+                    <img src="img/anterior.svg" alt="" onclick="anterior()">
+                </div>
+                
+                <div>
+                    <img src="img/pause.png" alt="" id="pause" onclick="pause(this)">
+                </div>
+                
+                <div>
+                    <img src="img/proximo.svg" alt="" onclick="proximo()">
+                </div>
+            </div>
+    
+            <div id="container_msc">
+                <div id="info_cantor">
+                    <a href="" id="nomeMusicaPlayer"></a>
+                </div>
+    
+                <div id="barra_progresso">
+                    <audio id="audio">
+                        <source id="audioSrc" src="" type="audio/mp3"> 
+                    </audio>
+                    <p id="duracaoInicial"></p>
+                    <div id="barra">
+                        <input type="range" min="0" max="" id="tempoMusica" value="0">
+                    </div>
+                    <p id="duracaoFinal"></p>
+                </div>
+            </div>
+    
+            <div id="volume">
+                <img src="img/clarity_volume-up-solid.svg" alt="" id="imagemVolume">
+                <div id="barra_volume">
+                    <div id="configVolume">
+                        <input type="range" min="0" max="100" id="Volume">
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script/script.js"></script>
+    <script src="svg-inject.min.js"></script>
+</body>
+</html>
