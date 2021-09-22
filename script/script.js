@@ -28,35 +28,37 @@ let infoFaixas = [
         nomeMusica: 'Parents',
         nomeArtista: 'Yungblud',
         img: 'img/Parents.jpg',
-        src: 'file:///E:/desenvolvimento/hotmart/playlist/audio/YUNGBLUD%20-%20Parents.mp3'
+        src: 'audio/YUNGBLUD - Parents.mp3'
     },
 
     {
         nomeMusica: 'Whatever It Takes',
         nomeArtista: 'Imagine Dragons',
         img: 'img/ImagineDragonsEvolve.jpg',
-        src: 'file:///E:/desenvolvimento/hotmart/playlist/audio/Imagine%20Dragons%20-%20Whatever%20it%20takes.mp3'
+        src: 'audio/Imagine Dragons - Whatever it takes.mp3'
     }, 
+
+    {
+        nomeMusica: 'Devil May Cry',
+        nomeArtista: 'Mako',
+        img: 'img/mako.jpg',
+        src: 'audio/Mako - Devil May Cry.mp3'
+    },
 
     {
         nomeMusica: 'Cuthroat',
         nomeArtista: 'Imagine Dragons',
         img: 'img/mercury.png',
-        src: 'file:///E:/desenvolvimento/hotmart/playlist/audio/Imagine%20Dragons%20-%20Cutthroat%20(Lyric%20Video).mp3'
+        src: 'audio/Imagine Dragons - Cutthroat (Lyric Video).mp3'
     },
 
-    {
-        nomeMusica: 'Teeth',
-        nomeArtista: '5 Seconds Of Summer',
-        img: 'img/teeth.jpg',
-        src: 'file:///E:/desenvolvimento/hotmart/playlist/audio/5%20Seconds%20of%20Summer%20%E2%80%92%20Teeth.mp3'
-    },
+    
 
     {
         nomeMusica: 'Pet Cheetah',
         nomeArtista: 'Twenty One Pilots',
         img: 'img/trench_.jpg',
-        src: 'file:///E:/desenvolvimento/hotmart/playlist/audio/twenty%20one%20pilots%20-%20Pet%20Cheetah.mp3'
+        src: 'audio/twenty one pilots - Pet Cheetah.mp3'
     }
 ]
 
@@ -102,7 +104,9 @@ function info(informacoes){
                 </div>
             
             `
+            console.log(infoFaixa.src)
             audio.src = `${infoFaixa.src}`
+            audio.setAttribute('valoratual', `${infoFaixa.src}`)
 
             imgPause.src = 'img/pause.png'
 
@@ -110,7 +114,6 @@ function info(informacoes){
 
             audio.play()
     
-            
         }
         
     }
@@ -121,23 +124,22 @@ function info(informacoes){
 //pausar o audio, trocar a imagem entre o play e pause
 
 function pause(isso){
-    if(isso.src == 'file:///E:/desenvolvimento/hotmart/playlist/img/play-button-arrowhead.png'){
-        
+    if(isso.id == `play`){
         audio.play()
-        isso.src = 'img/pause.png'
-        
+        isso.src = '/img/pause.png'
+        isso.id = 'pause'
 
-    } else if(isso.src == 'file:///E:/desenvolvimento/hotmart/playlist/img/pause.png') {
-        
+    } else if(isso.id == `pause`) {
         audio.pause()
-        isso.src = 'img/play-button-arrowhead.png'
+        isso.src = '/img/play-button-arrowhead.png'
+        isso.id = 'play'
         
     }
 }
 
 function anterior(){
     infoFaixas.forEach((element, indice) => {
-        if(element.src == audio.src){
+        if(element.src == audio.getAttribute('valoratual')){
             let retorno = infoFaixas[indice - 1]
             if(retorno == undefined){
                 alert('Acabaram as músicas')
@@ -151,8 +153,9 @@ function anterior(){
 function proximo(){
     var retorno = {}
     infoFaixas.forEach((element, indice) => {
-        if(element.src == audio.src){
+        if(element.src == audio.getAttribute('valoratual')){
             retorno = infoFaixas[indice + 1]
+            
             if(retorno == undefined){
                 alert('Acabaram as músicas')
             } else {
@@ -165,12 +168,13 @@ function proximo(){
                     </div>
                     
                 `
+               
             }
         }
     });
 
     if(retorno != undefined){
-        audio.src = ''
+        audio.setAttribute('valoratual', `${retorno.src}`)
         audio.src = `${retorno.src}`
         audio.play()
     }
@@ -199,7 +203,7 @@ function durationAudio(){
         secondsTotal = "0" + secondsTotal
     }
 
-    if(imgPause.src == 'file:///E:/desenvolvimento/hotmart/playlist/img/play-button-arrowhead.png'){
+    if(imgPause.src == '../img/play-button-arrowhead.png'){
         clearInterval(timer)
     } else {
         timer = setInterval(durationAudio, 1000)
@@ -222,9 +226,9 @@ configVolume.addEventListener("input", ()=>{
     audio.volume = volume.value/100;
 
     if(audio.volume == 0){
-        imagemVolume.src = 'img/fluent_speaker-mute-20-filled.png'
+        imagemVolume.src = '../img/fluent_speaker-mute-20-filled.png'
     } else {
-        imagemVolume.src = 'img/ferramenta-de-audio-com-alto-falante.png'
+        imagemVolume.src = '../img/ferramenta-de-audio-com-alto-falante.png'
     }
 });
 
