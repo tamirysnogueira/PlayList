@@ -17,7 +17,7 @@
 <br>
 <p align="center">
     <br>
-    <video src="github/Desktop.mkv" controls width='800px'>
+    <img src="github/desktop.gif" width='800px'>
 
 </p>
 <br>
@@ -38,7 +38,7 @@
 
 ### 🌐 Vercel
 Aqui você pode visualizar o projeto, é só clicar em:
-[PlayList](https://the-boi.vercel.app/)
+[PlayList](https://play-list-bay.vercel.app/)
 
 <br> 
 
