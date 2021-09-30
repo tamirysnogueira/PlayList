@@ -22,11 +22,6 @@
 </p>
 <br>
 
-### 🚧 Atenção!
-- Por enquanto o projeto está  sem responsividade, ainda vou trabalhar nessa parte.
-
-<br>
-
 ### 🚀 Tecnologias Utilizadas
 <br>
 
